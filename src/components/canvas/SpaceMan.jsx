@@ -7,10 +7,10 @@ import CanvasLoader from '../Loader';
 const Space = () => {
   const { scene } = useGLTF('./space_boi/scene.gltf');
 
-  console.log(scene); // Check the scene object
+  console.log(scene,'scene'); // Check the scene object
 
   return (
-    <mesh scale={[0.7, 0.7, 0.7]}>
+    <mesh scale={[0.7, 0.7, 0.7]} >
       <primitive object={scene} position={[0, -3, 0]} rotation={[0, Math.PI / 9, 0]} />
     </mesh>
   );
