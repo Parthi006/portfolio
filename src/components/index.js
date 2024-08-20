@@ -7,6 +7,7 @@ import Experience from './Experience';
 import Works from './Works';
 import Resume from './Resume';
 import Contact from './Contact';
+import ErrorBoundry from './ErrorBoundry';
 
 export {
   Hero,
@@ -20,5 +21,6 @@ export {
   EarthCanvas, 
   BallCanvas, 
   ComputersCanvas, 
-  StarsCanvas
+  StarsCanvas,
+  ErrorBoundry
 }
