@@ -1,30 +1,28 @@
-import React, { Suspense } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
+import React, { Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
-import CanvasLoader from '../Loader';
+import CanvasLoader from "../Loader";
 
 const Space = () => {
-  const { scene } = useGLTF('./space_boi/scene.gltf');
-
-  console.log(scene,'scene'); // Check the scene object
+  const { scene } = useGLTF("./space_boi/scene.gltf");
 
   return (
-    <mesh scale={[0.7, 0.7, 0.7]} >
-      <primitive object={scene} position={[0, -3, 0]} rotation={[0, Math.PI / 9, 0]} />
+    <mesh scale={[0.7, 0.7, 0.7]}>
+      <primitive
+        object={scene}
+        position={[0, -3, 0]}
+        rotation={[0, Math.PI / 9, 0]}
+      />
     </mesh>
   );
 };
 
 const SpaceCanvas = () => {
   return (
-    <Canvas 
-      shadows
-      frameloop='demand'
-      gl={{ preserveDrawingBuffer: true }}
-    >
+    <Canvas shadows frameloop="demand" gl={{ preserveDrawingBuffer: true }}>
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls 
+        <OrbitControls
           autoRotate
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}

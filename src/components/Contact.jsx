@@ -3,11 +3,10 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
+import { EarthCanvas, CampCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
-import Swal from 'sweetalert2'
-
+import Swal from "sweetalert2";
 
 const Contact = () => {
   const formRef = useRef();
@@ -26,7 +25,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (form.name !== "" && form.email !== "") {
       setLoading(true);
       emailjs
@@ -54,15 +53,15 @@ const Contact = () => {
                 animate__animated
                 animate__fadeInUp
                 animate__faster
-              `
+              `,
             },
             hideClass: {
               popup: `
                 animate__animated
                 animate__fadeOutDown
                 animate__faster
-              `
-            }
+              `,
+            },
           });
           setForm({
             name: "",
@@ -79,7 +78,7 @@ const Contact = () => {
             text: `Something went wrong! ${err.message}`,
           });
         });
-    }else{
+    } else {
       Swal.fire({
         icon: "error",
         title: "Missing Fields!",
@@ -89,10 +88,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden">
+    <div className="absolute inset-0 mt-28 flex-row flex gap-10">
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
-        className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
+        className="flex-[0.3] p-8 rounded-2xl"
       >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
@@ -142,12 +141,13 @@ const Contact = () => {
           </button>
         </form>
       </motion.div>
-      <motion.div
+      {/* <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className="xl:flex-1 xl:h-auto md:h-[500px] h-[350px]"
       >
         <EarthCanvas />
-      </motion.div>
+        <CampCanvas />
+      </motion.div> */}
     </div>
   );
 };

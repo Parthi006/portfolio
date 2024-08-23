@@ -12,6 +12,7 @@ import {
 } from "./components";
 import React, { useState, useEffect } from "react";
 import { motion, useScroll, useAnimation } from "framer-motion";
+import { CampCanvas } from "./components/canvas";
 
 const App = () => {
   const { scrollYProgress } = useScroll();
@@ -50,9 +51,11 @@ const App = () => {
         <Experience />
         <Resume />
         <Tech />
-        <div className="relative z-0">
+        <div className="relative w-full h-screen mx-auto">
           <Contact />
-          <StarsCanvas />
+          <div className="absolute inset-0 z-[-1]">
+            <CampCanvas />
+          </div>
         </div>
       </div>
     </BrowserRouter>
