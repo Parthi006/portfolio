@@ -91,7 +91,7 @@ const Contact = () => {
     <div className="absolute inset-0 mt-28 flex-row flex gap-10">
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
-        className="flex-[0.3] p-8 rounded-2xl"
+        className="xs:flex-[0.1] flex-[0.3] p-8 rounded-2xl"
       >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>

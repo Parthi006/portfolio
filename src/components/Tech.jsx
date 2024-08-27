@@ -5,7 +5,7 @@ import { technologies } from "../constants";
 
 const Tech = () => {
   const [isMobile, setIsMobile] = useState(false);
-  let arr = ["MUI", "Ant Design", "Ag Grid", "git", "github"];
+  let arr = ["MUI", "Ant Design", "Ag Grid", "git", "github", "Tailwind CSS"];
   const tech = useMemo(
     () =>
       isMobile
@@ -31,7 +31,7 @@ const Tech = () => {
       {tech &&
         tech.map((technology) => (
           <div className="w-28 h-27" key={technology.name}>
-            <BallCanvas icon={technology.icon} />
+            <BallCanvas icon={technology.icon} />  
           </div>
         ))}
     </div>
