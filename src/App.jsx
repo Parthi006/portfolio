@@ -51,7 +51,7 @@ const App = () => {
         <Experience />
         <Resume />
         <Tech />
-        <div className="relative w-full h-screen mx-auto">
+        <div className="relative w-full h-[120vh] mx-auto">
           <Contact />
           <div className="absolute inset-0 z-[-1]">
             <CampCanvas />
