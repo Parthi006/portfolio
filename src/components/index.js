@@ -7,7 +7,9 @@ import Experience from './Experience';
 import Works from './Works';
 import Resume from './Resume';
 import Contact from './Contact';
+import ContactAnd3D from './ContactAnd3D';
 import ErrorBoundry from './ErrorBoundry';
+import Preloader from './PreLoader';
 
 export {
   Hero,
@@ -18,6 +20,8 @@ export {
   Works,
   Resume,
   Contact,
+  Preloader,
+  ContactAnd3D,
   EarthCanvas, 
   BallCanvas, 
   ComputersCanvas, 

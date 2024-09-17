@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
@@ -16,6 +16,21 @@ const Contact = () => {
     message: "",
   });
   const [loading, setLoading] = useState(false);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width:450px)");
+    setIsMobile(mediaQuery.matches);
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -88,7 +103,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="absolute max-h-[100vh] inset-0 mt-12 xl:mt-28 flex-row flex gap-10">
+    <div className={`min-h-full flex-row flex gap-${isMobile ? "4" : "10"}`}>
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
         className="xs:flex-[-0.1] flex-[0.3] p-8 rounded-2xl"
@@ -98,7 +113,7 @@ const Contact = () => {
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="mt-12 flex flex-col gap-8"
+          className={`mt-12 flex flex-col gap-${isMobile ? "4" : "8"}`}
         >
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Name</span>
