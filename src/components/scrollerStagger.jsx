@@ -53,7 +53,7 @@ const RightSideDrawer = ({ preloader, setCursor }) => {
           <AnimatePresence>
             {isOpen && (
               <motion.div
-                className="fixed top-1/4 right-0 w-40 h-[600px] bg-gray-100 shadow-lg z-20 p-[2px] bg-gradient-to-r from-[#a03173] from-10%  to-[#d8c195] to-90% rounded-[20px]"
+                className="fixed top-1/4 right-0 w-40 h-[600px] shadow-lg z-20 p-[2px] bg-gradient-to-r from-[#a03173] from-10%  to-[#d8c195] to-90% rounded-[20px]"
                 initial={{ x: 300, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: 300, opacity: 0 }}
@@ -67,7 +67,7 @@ const RightSideDrawer = ({ preloader, setCursor }) => {
                         src={item.link}
                         alt={item.name}
                         onClick={() => setCursor(item.link)}
-                        className="w-24 h-24 bg-gray-400 flex justify-center items-center font-bold text-lg rounded-lg"
+                        className="w-24 h-24 bg-none flex justify-center items-center font-bold text-lg rounded-lg"
                       />
                     );
                   })}
