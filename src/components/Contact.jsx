@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
-import { EarthCanvas, CampCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import Swal from "sweetalert2";
+import { follow } from "../constants";
 
 const Contact = () => {
   const formRef = useRef();
@@ -103,17 +103,17 @@ const Contact = () => {
   };
 
   return (
-    <div className={`min-h-full flex-row flex gap-${isMobile ? "4" : "10"}`}>
+    <div className={`min-h-full flex-col flex gap-${isMobile ? "4" : "10"}`}>
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
-        className="xs:flex-[-0.1] flex-[0.3] p-8 rounded-2xl"
+        className={`xs:flex-[-0.1] w-fit flex-[0.3] px-8 py-${isMobile ? "4" : "8"} rounded-2xl`}
       >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className={`mt-12 flex flex-col gap-${isMobile ? "4" : "8"}`}
+          className={`flex flex-col ${isMobile ? "mt-8 gap-4" : "mt-12 gap-10"}`}
         >
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Name</span>
@@ -156,13 +156,32 @@ const Contact = () => {
           </button>
         </form>
       </motion.div>
-      {/* <motion.div
-        variants={slideIn("left", "tween", 0.2, 1)}
-        className="xl:flex-1 xl:h-auto md:h-[500px] h-[350px]"
-      >
-        <EarthCanvas />
-        <CampCanvas />
-      </motion.div> */}
+      <motion.div 
+      variants={slideIn("left", "tween", 0.2, 1)}
+        className="flex flex-row justify-center px-8 gap-20"
+        >
+        {follow.map((me, index) => (
+          <motion.img
+            className="w-14 h-14"
+            animate={{
+              x : [0, 20, 0],
+              y: [0, -20,0, -20, 0],
+              scale : [0.7, 1.2, 0.7],
+              rotate : [0, 45, -45, 0],
+            }}
+            transition={{
+              duration: 2,
+              delay : 5,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+            key={index}
+            src={me.icon}
+            alt={me.name}
+            target="_balnk"
+            onClick={()=>window.open(me.link, '_blank')}/>
+        ))}
+      </motion.div>
     </div>
   );
 };

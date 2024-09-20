@@ -15,7 +15,7 @@ const Resume = () => {
         variants={staggerContainer()}
         initial="hidden"
         whileInView="show"
-        whileHover="none" // disable the default scaling for this section
+        whileHover="none"
         viewport={{ once: true, amount: 0.25 }}
         className={`${styles.padding} max-w-7xl mx-auto relative z-0`}
       >
@@ -25,7 +25,7 @@ const Resume = () => {
           whileHover={{
             scale: [1.2, 1.1, 1.2],
             transition: { duration: 0.8, repeat: Infinity },
-            boxShadow: "0px 0px 12px rgba(250, 250, 250, 0.4)", // Fixed the rgba value
+            boxShadow: "0px 0px 12px rgba(250, 250, 250, 0.4)",
             borderRadius: "20px",
           }}
         >
@@ -40,25 +40,26 @@ const Resume = () => {
                   key={index}
                   style={{
                     display: "inline-block",
-                    marginRight: char === " " ? "7px" : "1px", // Add margin to the space between "Download" and "Resume"
+                    marginRight: char === " " ? "7px" : "1px",
                   }}
                   animate={{
                     scale: [1, 1.5, 1],
                     transform: [
                       "translateX(5px)",
-                      "translateX(10px)", // Shift the letter right
-                      "translateX(5px)", // Return it back to its original position
+                      "translateX(10px)",
+                      "translateX(5px)",
                     ],
                     color: [
-                      "#ff6347",
-                      "#1E67C6",
                       "#CE84CF",
-                      "#13FFAA",
+                      "#1E67C6",
+                      "#ff6347",
                       "#DD335C",
+                      "#fff",
+                      "#13FFAA",
                     ],
                   }}
                   transition={{
-                    duration: 1.5,
+                    duration: 6,
                     repeat: Infinity,
                     repeatDelay: 0.3,
                     delay: index * 0.1,

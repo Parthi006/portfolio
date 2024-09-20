@@ -8,7 +8,8 @@ import {
   Preloader,
   Navbar,
   Tech,
-  Works,
+  AnimatedCursor,
+  RightSideScroll,
 } from "./components";
 import React, { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -21,8 +22,9 @@ const App = () => {
     [0, 1],
     ["top left", "top right"]
   );
-  
+
   const [preloader, setPreloader] = useState(true);
+  const [cursor, setCursor] = useState('');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -39,12 +41,22 @@ const App = () => {
       document.body.style.overflow = "auto";
     }
     return () => {
-      document.body.style.overflow = "auto"; // Clean up
+      document.body.style.overflow = "auto";
     };
   }, [preloader]);
 
   return (
     <BrowserRouter>
+      <AnimatedCursor
+      cursor={cursor}
+        innerSize={20}
+        outerSize={20}
+        color="255, 255 ,255"
+        outerAlpha={0.4}
+        innerScale={0.7}
+        outerScale={5}
+      />
+      <RightSideScroll preloader={preloader} setCursor={setCursor} />
       {preloader ? (
         <Preloader preloader={preloader} />
       ) : (

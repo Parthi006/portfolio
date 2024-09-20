@@ -4,6 +4,12 @@ module.exports = {
   mode: "jit",
   theme: {
     extend: {
+      perspective: {
+        '1000': '1000px',
+      },
+      transformStyle: {
+        '3d': 'preserve-3d',
+      },
       colors: {
         primary: "#050816",
         secondary: "#aaa6c3",
@@ -26,6 +32,12 @@ module.exports = {
   plugins: [
     function({ addUtilities }) {
       const newUtilities = {
+        '.perspective-1000': {
+          perspective: '1000px',
+        },
+        '.transform-style-3d': {
+          'transform-style': 'preserve-3d',
+        },
         '.text-shadow-cyan': {
           textShadow: '0px 0px 4px rgba(48,186,166, 0.9), 0px 0px 6px rgba(48,186,166, 0.5)',
         },

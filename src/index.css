@@ -114,6 +114,15 @@
   -webkit-text-fill-color: transparent;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 /* canvas- styles */
 .canvas-loader {
   font-size: 10px;

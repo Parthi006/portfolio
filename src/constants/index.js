@@ -1,7 +1,4 @@
 import {
-  javascript,
-  html,
-  css,
   reactjs,
   redux,
   tailwind,
@@ -9,8 +6,6 @@ import {
   mongodb,
   git,
   github,
-  starbucks,
-  tesla,
   carrent,
   jobit,
   tripguide,
@@ -24,7 +19,10 @@ import {
   api,
   react1,
   aroopa,
-  longshore
+  longshore,
+  instagram3d,
+  linkedin3d,
+  github3d,
 } from "../assets";
 
 export const navLinks = [
@@ -238,4 +236,21 @@ const projects = [
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+const follow = [
+  {
+    name: "linkedin",
+    icon: linkedin3d,
+    link: "https://www.linkedin.com/in/parthiban-s-682b1822a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+  },
+  {
+    name: "github",
+    icon: github3d,
+    link : "https://github.com/Parthi006"
+  },
+  {
+    name: "instagram",
+    icon: instagram3d,
+    link : "https://www.instagram.com/parthiban_raj_?igsh=MWdsMnd5OHhkY3Bqbw=="
+  },
+]
+export { services, technologies, experiences, testimonials, projects, follow };

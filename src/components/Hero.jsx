@@ -50,7 +50,7 @@ const Hero = () => {
             animate={{
               scale : [1,1,5, 1],
               rotate: [0, 0, -180, -180, 0],
-              zIndex : -1
+              zIndex : -1 
             }}
             transition={{
               delay : 2,
@@ -62,12 +62,9 @@ const Hero = () => {
           </motion.p>
         </motion.div>
       </div>
-      {/* <GamingPcCanvas /> */}
       <ErrorBoundary>
         <SpaceManCanvas />
       </ErrorBoundary>
-      {/* <SpaceShuttleCanvas /> */}
-      {/* <CampCanvas /> */}s
     </section>
   );
 };
