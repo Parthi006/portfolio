@@ -1,9 +1,14 @@
 import {
+  html,
+  css,
+  javascript,
   reactjs,
   redux,
   tailwind,
   nodejs,
   mongodb,
+  threejs,
+  docker,
   git,
   github,
   carrent,
@@ -23,6 +28,13 @@ import {
   instagram3d,
   linkedin3d,
   github3d,
+  html3D,
+  css3D,
+  javascript3D,
+  git3D,
+  tailwind3D,
+  mongodb3D,
+  threejsLogo
 } from "../assets";
 
 export const navLinks = [
@@ -65,8 +77,20 @@ const services = [
 
 const technologies = [
   {
+    name: "HTML 5",
+    icon: html3D,
+  },
+  {
+    name: "CSS 3",
+    icon: css3D,
+  },
+  {
+    name: "Javascript",
+    icon: javascript3D,
+  },
+  {
     name: "React JS",
-    icon: reactjs,
+    icon: react1,
   },
   {
     name: "Redux Toolkit",
@@ -74,7 +98,7 @@ const technologies = [
   },
   {
     name: "Tailwind CSS",
-    icon: tailwind,
+    icon: tailwind3D,
   },
   {
     name: "MUI",
@@ -90,23 +114,31 @@ const technologies = [
   },
   {
     name: "Node JS",
-    icon: nodejs,
+    icon: node,
   },
   {
     name: "MongoDB",
-    icon: mongodb,
+    icon: mongodb3D,
   },
   {
     name: "Azure",
     icon: azure,
   },
   {
+    name: "Docker",
+    icon: docker,  
+  },
+  {
+    name: "Three Js",
+    icon: threejsLogo,  
+  },
+  {
     name: "git",
-    icon: git,  
+    icon: git3D,  
   },
   {
     name: "github",
-    icon: github,
+    icon: github3d,
   },
 ];
 

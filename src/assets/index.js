@@ -56,8 +56,23 @@ import instagram3d from "./instagram3d.png";
 import linkedin3d from "./linkedin3d.png";
 import github3d from "./github3d.png";
 import leftArrow from "./left-arrow.png";
+import threejsLogo from "./Threejs-logo.png";
+
+import html3D from "./html3D.png";
+import css3D from "./css3D.png";
+import javascript3D from "./javascript3D.png";
+import git3D from "./git3D.png";
+import tailwind3D from "./tailwind3D.png";
+import mongodb3D from "./mongo-db3D.png";
 
 export {
+  html3D,
+  css3D,
+  javascript3D,
+  git3D,
+  tailwind3D,
+  mongodb3D,
+  threejsLogo,
   logo,
   backend,
   creator,

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence, useScroll } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { leftArrow } from "../assets";
 import { pikachuhead, pokeball, monster, panda, luffy } from "../assets";
+
 const items = [
   {
     link: pikachuhead,
@@ -27,14 +28,29 @@ const items = [
 
 const RightSideDrawer = ({ preloader, setCursor }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { scrollY } = useScroll();
-  const scrollPosition = scrollY.get();
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        setIsOpen(false); // Close the modal
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+  
 
   return (
     <>
       {!preloader && (
         <div>
           <motion.div
+            ref={modalRef}
             className="fixed right-0 top-1/2 transform -translate-y-1/2 bg-none p-2 text-white rounded-l-lg cursor-pointer z-10"
             initial={{ x: 0 }}
             animate={{ x: isOpen ? -160 : 0 }}
