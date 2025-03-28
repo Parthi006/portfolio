@@ -62,9 +62,9 @@ const Hero = () => {
           </motion.p>
         </motion.div>
       </div>
-      <ErrorBoundary>
+      {/* <ErrorBoundary>
         <SpaceManCanvas />
-      </ErrorBoundary>
+      </ErrorBoundary> */}
     </section>
   );
 };

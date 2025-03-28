@@ -62,7 +62,7 @@ const App = () => {
       ) : (
         <div className="relative z-0 bg-primary">
           <motion.div
-            className="bg-fixed bg-parallax bg-cover"
+            className="bg-fixed bg-parallax bg-center w-auto h-auto"
             style={{ backgroundPosition }}
           >
             <Navbar />
