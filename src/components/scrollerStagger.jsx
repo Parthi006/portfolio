@@ -82,7 +82,7 @@ const RightSideDrawer = ({ preloader, setCursor }) => {
                         key={index}
                         src={item.link}
                         alt={item.name}
-                        onClick={() => setCursor(item.link)}
+                        onClick={() => setCursor((prev) => item.link)}
                         className="w-24 h-24 bg-none flex justify-center items-center font-bold text-lg rounded-lg"
                       />
                     );

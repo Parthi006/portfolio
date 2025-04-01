@@ -16,41 +16,46 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { CampCanvas } from "./components/canvas";
 
 const App = () => {
-
   const [preloader, setPreloader] = useState(true);
-  const [cursor, setCursor] = useState('');
-
+  const [cursor, setCursor] = useState("");
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
+  
   useEffect(() => {
+    // Set preloader timeout
     const timer = setTimeout(() => {
       setPreloader(false);
     }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    if (preloader) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+  
+    // Handle screen resize
+    const handleResize = () => setIsDesktop(window.innerWidth > 768);
+    window.addEventListener("resize", handleResize);
+  
+    // Disable scrolling during preloader
+    document.body.style.overflow = preloader ? "hidden" : "auto";
+  
     return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", handleResize);
       document.body.style.overflow = "auto";
     };
   }, [preloader]);
 
   return (
     <BrowserRouter>
-      <AnimatedCursor
-      cursor={cursor}
-        innerSize={20}
-        outerSize={20}
-        color="255, 255 ,255"
-        outerAlpha={0.4}
-        innerScale={0.7}
-        outerScale={5}
-      />
-      <RightSideScroll preloader={preloader} setCursor={setCursor} />
+      {isDesktop && (
+        <>
+        <AnimatedCursor
+          cursor={cursor}
+          innerSize={20}
+          outerSize={20}
+          color="255, 255 ,255"
+          outerAlpha={0.4}
+          innerScale={0.7}
+          outerScale={5}
+        />
+        <RightSideScroll preloader={preloader} setCursor={setCursor} /></>
+      )}
+      
       {preloader ? (
         <Preloader preloader={preloader} />
       ) : (
