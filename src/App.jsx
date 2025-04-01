@@ -56,7 +56,8 @@ const App = () => {
       ) : (
         <div className="relative z-0 bg-primary">
           <motion.div
-            className="bg-fixed bg-parallax bg-center w-auto h-auto"
+            className="bg-parallax bg-cover bg-center bg-no-repeat h-auto 
+             md:bg-fixed md:bg-cover"
           >
             <Navbar />
             <Hero />

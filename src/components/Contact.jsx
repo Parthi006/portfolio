@@ -103,83 +103,94 @@ const Contact = () => {
   };
 
   return (
-    <div className={`min-h-full flex-col flex gap-${isMobile ? "4" : "10"}`}>
+    <div className="min-h-full flex flex-col gap-4 md:gap-10 px-4 md:px-8">
+      {/* Form Section */}
       <motion.div
-        variants={slideIn("right", "tween", 0.2, 1)}
-        className={`xs:flex-[-0.1] w-fit flex-[0.3] px-8 py-${isMobile ? "4" : "8"} rounded-2xl`}
+        variants={slideIn("right", "tween", 0.2, 1)} 
+        className="xs:flex-[-0.1] w-full md:w-fit flex-[0.3] p-6 md:px-8 md:py-8 rounded-2xl"
       >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
+
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className={`flex flex-col ${isMobile ? "mt-8 gap-4" : "mt-12 gap-10"}`}
+          className="flex flex-col mt-8 md:mt-12 gap-4 md:gap-10 max-w-lg"
         >
+          {/* Name Input */}
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Name</span>
+            <span className="text-white font-medium mb-2 md:mb-4">Name</span>
             <input
               type="text"
               name="name"
               value={form.name}
               onChange={handleChange}
               placeholder="What's your name?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              className="bg-tertiary py-3 px-5 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
+
+          {/* Email Input */}
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Email</span>
+            <span className="text-white font-medium mb-2 md:mb-4">Email</span>
             <input
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
               placeholder="What's your email?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              className="bg-tertiary py-3 px-5 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
+
+          {/* Message Input */}
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Message</span>
+            <span className="text-white font-medium mb-2 md:mb-4">Message</span>
             <textarea
-              rows="7"
+              rows="5"
               name="message"
               value={form.message}
               onChange={handleChange}
               placeholder="What do you want to say?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              className="bg-tertiary py-3 px-5 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
+
+          {/* Submit Button */}
           <button
             type="submit"
-            className="bg-cyan-600 py-3 px-8 outline-none w-fit text-black font-bold shadow-md shadow-cyan-300 rounded-xl"
+            className="bg-cyan-600 py-3 px-6 outline-none w-fit text-black font-bold shadow-md shadow-cyan-300 rounded-xl"
           >
             {loading ? "Sending..." : "Send"}
           </button>
         </form>
       </motion.div>
-      <motion.div 
-      variants={slideIn("left", "tween", 0.2, 1)}
-        className="flex flex-row justify-center px-8 gap-20"
-        >
+
+      {/* Social Icons Section */}
+      <motion.div
+        variants={slideIn("left", "tween", 0.2, 1)}
+        className="flex flex-wrap justify-center gap-8 md:gap-20 px-4"
+      >
         {follow.map((me, index) => (
           <motion.img
-            className="w-14 h-14"
+            key={index}
+            className="w-12 h-12 md:w-14 md:h-14 cursor-pointer"
             animate={{
-              x : [0, 20, 0],
-              y: [0, -20,0, -20, 0],
-              scale : [0.7, 1.2, 0.7],
-              rotate : [0, 45, -45, 0],
+              x: [0, 20, 0],
+              y: [0, -20, 0, -20, 0],
+              scale: [0.7, 1.2, 0.7],
+              rotate: [0, 45, -45, 0],
             }}
             transition={{
               duration: 2,
-              delay : 5,
+              delay: 5,
               repeat: Infinity,
-              ease: 'easeInOut',
+              ease: "easeInOut",
             }}
-            key={index}
             src={me.icon}
             alt={me.name}
-            target="_balnk"
-            onClick={()=>window.open(me.link, '_blank')}/>
+            onClick={() => window.open(me.link, "_blank")}
+          />
         ))}
       </motion.div>
     </div>
