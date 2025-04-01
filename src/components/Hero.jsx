@@ -20,7 +20,7 @@ const Hero = () => {
           initial={{ x : '100vw', display : "hidden"}}
           animate={{
             x : 0,
-            display : "block"
+            display : "visible"
           }}
           transition={{
             delay : 3,
