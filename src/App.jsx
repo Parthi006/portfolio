@@ -16,12 +16,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { CampCanvas } from "./components/canvas";
 
 const App = () => {
-  const { scrollYProgress } = useScroll();
-  const backgroundPosition = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["top left", "top right"]
-  );
 
   const [preloader, setPreloader] = useState(true);
   const [cursor, setCursor] = useState('');
@@ -63,7 +57,6 @@ const App = () => {
         <div className="relative z-0 bg-primary">
           <motion.div
             className="bg-fixed bg-parallax bg-center w-auto h-auto"
-            style={{ backgroundPosition }}
           >
             <Navbar />
             <Hero />
