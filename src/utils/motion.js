@@ -56,16 +56,16 @@ export const textVariant = (delay) => {
     };
   };
   
-  export const slideIn = (direction, type, delay, duration) => {
+  export const slideIn = (direction, type, delay, duration, isIcon) => {
     return {
       hidden: {
-        display: "none",
+        display: isIcon ? "visible" : "none",
         x: direction === "left" ? "-100vw" : direction === "right" ? "100vw" : 0,
         y: direction === "up" ? "100vh" : direction === "down" ? "100vh" : 0,
         opacity: 0,
       },
-      show: {
-        display: "block",
+      show: { 
+        display: isIcon ? "visible" : "block",
         x: 0,
         y: 0,
         opacity: 1,

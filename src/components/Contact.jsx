@@ -106,8 +106,10 @@ const Contact = () => {
     <div className="min-h-full flex flex-col gap-4 md:gap-10 px-4 md:px-8">
       {/* Form Section */}
       <motion.div
-        variants={slideIn("right", "tween", 0.2, 1)} 
-        className="xs:flex-[-0.1] w-full md:w-fit flex-[0.3] p-6 md:px-8 md:py-8 rounded-2xl"
+        variants={slideIn("right", "tween", 0.2, 1)}
+        initial="hidden"
+        animate="show"
+        className="xs:flex-[-0.1] w-full md:w-fit flex-[0.3] md:px-8 rounded-2xl"
       >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
@@ -168,13 +170,15 @@ const Contact = () => {
 
       {/* Social Icons Section */}
       <motion.div
-        variants={slideIn("left", "tween", 0.2, 1)}
-        className="flex flex-wrap justify-center gap-8 md:gap-20 px-4"
+        variants={slideIn("left", "tween", 0.2, 1, true)}
+        initial="hidden"
+        animate="show"
+        className="flex flex-row justify-center items-center gap-8 md:gap-20 px-4 pt-6 w-full overflow-x-auto"
       >
         {follow.map((me, index) => (
           <motion.img
             key={index}
-            className="w-12 h-12 md:w-14 md:h-14 cursor-pointer"
+            className="w-12 h-12 md:w-14 md:h-14 cursor-pointer flex-shrink-0"
             animate={{
               x: [0, 20, 0],
               y: [0, -20, 0, -20, 0],

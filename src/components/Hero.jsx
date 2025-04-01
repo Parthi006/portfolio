@@ -17,9 +17,10 @@ const Hero = () => {
         className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
       >
         <motion.div 
-          initial={{ x : '100vw'}}
+          initial={{ x : '100vw', display : "hidden"}}
           animate={{
             x : 0,
+            display : "block"
           }}
           transition={{
             delay : 3,
